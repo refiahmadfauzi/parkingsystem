@@ -51,7 +51,7 @@ export default function AdminReservationPanel() {
 
     if (confirm.isConfirmed) {
       try {
-        const res = await axios.put(`http://localhost:5000/api/reservation/booking/${code}/pay`)
+        const res = await axios.put(`http://localhost:5000/api/reservations/booking/${code}/pay`)
         Swal.fire({
           icon: 'success',
           title: 'Payment Confirmed',

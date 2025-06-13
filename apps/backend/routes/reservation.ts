@@ -6,6 +6,6 @@ const router = Router()
 router.get('/slots', getSlots)
 router.post('/reserve', reserveSlot)
 router.post('/reservations/booking/:code', getReservationByBookingCode)
-router.patch('/reservations/booking/:code/pay', markReservationAsPaid)
+router.put('/reservations/booking/:code/pay', markReservationAsPaid)
 
 export { router as reservationRoutes }
