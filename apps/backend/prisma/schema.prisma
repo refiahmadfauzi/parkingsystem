@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ParkingSlot {
+  id         String         @id @default(uuid())
+  slotCode   String         @unique
+  location   String
+  isAvailable Boolean       @default(true)
+
+  reservations Reservation[]
+}
+
+model Reservation {
+  id               String       @id @default(uuid())
+  bookingCode      String       @unique
+  name             String
+  vehicleNumber    String
+  reservationDate  DateTime
+  startTime        DateTime
+  endTime          DateTime
+  status           String       @default("reserved") // reserved | cancelled | paid
+  paymentVerifiedAt DateTime?   // Waktu pembayaran diverifikasi admin
+
+  parkingSlotId    String
+  parkingSlot      ParkingSlot  @relation(fields: [parkingSlotId], references: [id])
+}
