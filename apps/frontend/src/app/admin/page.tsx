@@ -57,7 +57,9 @@ export default function AdminReservationPanel() {
           title: 'Payment Confirmed',
           text: 'Reservation status has been updated to done.',
         })
-        setReservation(res.data.updated)
+        setTimeout(() => {
+          location.reload();
+        }, 5000); // 5000 milidetik = 5 detik
       } catch (err) {
         Swal.fire({
           icon: 'error',
