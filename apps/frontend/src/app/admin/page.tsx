@@ -59,7 +59,7 @@ export default function AdminReservationPanel() {
         })
         setTimeout(() => {
           location.reload();
-        }, 5000); // 5000 milidetik = 5 detik
+        }, 2000); // 5000 milidetik = 5 detik
       } catch (err) {
         Swal.fire({
           icon: 'error',
